@@ -1,4 +1,4 @@
-# example: python .\segment_a4c_plax.py -p 'D:\PycharmProject\\xizong\segmented-images-all/I00610693534.dcm.jpg' -m 'unet_a4c_unet_20221110_17_02_47.hdf5'
+# example: python .\segment_a4c_plax.py -p 'I00610693534.dcm.jpg' -m 'unet_a4c_unet_20221110_17_02_47.hdf5'
 from __future__ import division, print_function, absolute_import
 import numpy as np
 import os
@@ -44,13 +44,6 @@ def main(img, unet):
 
 
 if __name__ == '__main__':
-    # root = "D:\PycharmProject\\xizong\segmented-images-all"
-    # imagename = 'I00610693534.dcm.jpg'
-    # image = imread(os.path.join(root, imagename))
-    # view_n = 'a4c'
-    # model_a4c = 'unet_a4c_unet_20221110_17_02_47.hdf5'
-    # model_plax = 'unet_plax_unet_20221110_17_01_22.hdf5'
-
     # Hyperparams
     parser = OptionParser()
     parser.add_option("-p", "--imagepath", dest="imagepath", help="imagepath")

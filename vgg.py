@@ -28,8 +28,6 @@ class Network(object):
         self.train_accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(self.train_pred, 1),
                                                               tf.argmax(self.y_train, 1)), tf.float32))
         self.val_pred = self.network(self.x_test, keep_prob=1.0, reuse=True)  # network_2
-        # self.val_accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(self.val_pred, 1),
-        #                                                     tf.argmax(self.y_test, 1)), tf.float32))
         self.val_accuracy = tf.reduce_sum(tf.cast(tf.equal(tf.argmax(self.val_pred, 1),
                                                            tf.argmax(self.y_test, 1)), tf.float32))
 

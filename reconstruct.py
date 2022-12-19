@@ -1,4 +1,4 @@
-# example: python .\reconstruct.py -p "D:\PycharmProject\xizong\RV-figures\chosen\I00651076388.dcm.jpg" -m 'E:\文章\20220314-高原超声心动\程序\models\unet_a4c_unet_20221110_17_02_47.hdf5' -g 0 -v 'a4c'
+# example: python .\reconstruct.py -p "I00651076388.dcm.jpg" -m 'models\unet_a4c_unet_20221110_17_02_47.hdf5' -g 0 -v 'a4c'
 from scipy.misc import imread, imresize, imsave
 import os
 import segment_a4c_plax
@@ -34,11 +34,11 @@ if __name__ == '__main__':
     if view == 'a4c':
         unet = unet_plax.Network('unet', 3, 5, 0.5, False).model
         unet.load_weights(model_path)
-        weight = {3: 0.37 / 0.37, 1: 0.35 / 0.37, 4: 0.20 / 0.37, 2: 0.08 / 0.37}
+        weight = {3: 0.468, 1: 401, 4: 0.127, 2: 0.004}
     else:
         unet = unet_plax.Network('unet', 3, 4, 0.5, False).model
         unet.load_weights(model_path)
-        weight = {3: 1 - 0.88, 1: 1 - 0.09, 2: 1 - 0.03}
+        weight = {3: 0.937, 1: 0.052, 2: 0.011}
     masks, fig = main(image_s, unet, weight)
     imsave('reconstructed.png', fig)
     imsave('mask.png', masks)

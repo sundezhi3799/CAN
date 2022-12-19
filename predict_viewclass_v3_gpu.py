@@ -1,4 +1,4 @@
-# example: python .\predict_viewclass_v3_gpu.py -d  "D:\data\Echocardiography\\xizong\echo-jpg-2022-testid"
+# example: python .\predict_viewclass_v3_gpu.py -d  "echo-jpg-2022-testid"
 # -g 0 -m "view_6_resnet_resnet50_20221109_15_23_30.hdf5"
 from __future__ import division, print_function, absolute_import
 import numpy as np

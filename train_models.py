@@ -21,7 +21,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 # # Network
 class Network(object):
-    def __init__(self, model_name='vgg16', feature_dim=1, label_dim=2, dropout=0.5, maxout=False):
+    def __init__(self, model_name='inceptionv3', feature_dim=1, label_dim=2, dropout=0.5, maxout=False):
         self.label_dim = label_dim
         self.feature_dim = feature_dim
         self.dropout = dropout
@@ -137,7 +137,7 @@ def load_train_test_data(label_dim, view):
     for sample_index in [train_index, test_index]:
         labels_list = []
         imagelist = []
-        for image_dir in ['/home/administrator/data/segmented-images-all']:
+        for image_dir in ['segmented-images-all']:
             for study in sample_index:
                 studynum += 1
                 y = labels_file.loc[study, 'PAH']

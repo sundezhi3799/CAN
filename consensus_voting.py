@@ -15,7 +15,7 @@ info = info.loc[test_index, :]
 # #val
 # table1=pd.read_csv('pah_prediction_a4c_val.csv',index_col=0)
 # table2=pd.read_csv('pah_prediction_plax_val.csv',index_col=0)
-# info=pd.read_csv('../echotrans-gpu/train_test_pah_normal_a4c_plax.csv',index_col=0)
+# info=pd.read_csv('train_test_pah_normal_a4c_plax.csv',index_col=0)
 
 def score(patientid):
     a4c = eval(info.loc[patientid, 'a4c'])

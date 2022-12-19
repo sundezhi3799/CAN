@@ -91,9 +91,9 @@ def save_and_display_gradcam(img_path, heatmap, cam_path="cam.jpg", alpha=0.4):
     superimposed_img = keras.preprocessing.image.array_to_img(superimposed_img)
 
     # Save the superimposed image
-    # superimposed_img.save(cam_path)
-    # jet_heatmap=keras.preprocessing.image.array_to_img(jet_heatmap)
-    # jet_heatmap.save('jet'+cam_path)
+    superimposed_img.save(cam_path)
+    jet_heatmap=keras.preprocessing.image.array_to_img(jet_heatmap)
+    jet_heatmap.save('jet'+cam_path)
 
 
 def main(image_dir, labels_file_path, view):
@@ -162,7 +162,7 @@ def main(image_dir, labels_file_path, view):
 
 
 if __name__ == '__main__':
-    wrv, wlv, wla, wra = main(image_dir="D:\PycharmProject\\xizong\segmented-images-all",
-                              labels_file_path="D:\PycharmProject\\xizong\\train_test_pah_a4c_plax_all.csv",
+    wrv, wlv, wla, wra = main(image_dir="segmented-images-all",
+                              labels_file_path="train_test_pah_a4c_plax_all.csv",
                               view='plax')
     print(wrv, wlv, wla, wra)

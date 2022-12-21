@@ -54,6 +54,5 @@ if __name__ == '__main__':
     params, args = parser.parse_args()
     image_dir = params.image_dir
     os.environ["CUDA_VISIBLE_DEVICES"] = params.gpu
-    # function
     diag = main(image_dir)
     print(diag)

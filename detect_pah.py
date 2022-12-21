@@ -2,9 +2,9 @@ from __future__ import division, print_function, absolute_import
 import os
 from optparse import OptionParser
 from scipy.misc import imread, imresize
-from resnet_a4c import Network
+from train_resnet_pah import Network
 import reconstruct as rt
-import unet_plax
+import unet_a4c_plax
 import predict_viewclass
 import unet_cardiac
 import consensus_voting
@@ -30,13 +30,13 @@ def main(image_dir):
         image = unet_cardiac.segment(image, 'unet_cardiac_unet_20221120_21_38_48.hdf5')
         if view == 1:
             model = "pah_2_a4c_resnet50_20221108_15_55_59.hdf5"
-            unet = unet_plax.Network('unet', 3, 5, 0.5, False).model
+            unet = unet_a4c_plax.Network('unet', 3, 5, 0.5, False).model
             unet.load_weights('unet_a4c_unet_20221110_17_02_47.hdf5')
             weight = {3: 0.37 / 0.37, 1: 0.35 / 0.37, 4: 0.20 / 0.37, 2: 0.08 / 0.37}
             a4c_scores.append(image_level(image, unet, weight, model))
         elif view == 2:
             model = "pah_2_plax_resnet50_20221108_16_00_52.hdf5"
-            unet = unet_plax.Network('unet', 3, 4, 0.5, False).model
+            unet = unet_a4c_plax.Network('unet', 3, 4, 0.5, False).model
             unet.load_weights('unet_plax_unet_20221110_17_01_22.hdf5')
             weight = {3: 1 - 0.88, 1: 1 - 0.09, 2: 1 - 0.03}
             plax_scores.append(image_level(image, unet, weight, model))

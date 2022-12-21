@@ -164,7 +164,6 @@ def train_print(i, j, loss, train_acc, batch, batch_total, time):
 def train(sess, model, x_train, y_train, x_test, y_test, epochs, batch_size, summary_writer=0, train_validation=5):
     '''
     Main function for training neural network model.
-
     @params many identical to those in validate()
     @params summary_writer: Tf.summary.FileWriter used for Tensorboard variables
     @params batch_size: Integer defining mini-batch size

@@ -52,8 +52,8 @@ if __name__ == '__main__':
     params, args = parser.parse_args()
     image_path = params.imagepath
     view_n = params.view
-
     model_name = 'unet'
+    
     image = imread(image_path)
     unet = load_model(view_n)
     fig = main(image, unet)

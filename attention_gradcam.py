@@ -117,7 +117,6 @@ def main(image_dir, labels_file_path, view):
     saver.restore(sess, model_path)
     labels_file = pd.read_csv(labels_file_path, index_col=0).iloc[:1000, ]
     studys = labels_file.index.tolist()
-
     names = []
     img_lst = []
     for study in studys:

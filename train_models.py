@@ -14,7 +14,6 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import KFold
 import random, json
-
 tf.disable_v2_behavior()
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 

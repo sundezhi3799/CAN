@@ -11,7 +11,6 @@ test_index = pd.read_csv('test_index.csv', header=None)[0].tolist()
 # info=info.loc[train_index,:]
 info = info.loc[test_index, :]
 
-
 # #val
 # table1=pd.read_csv('pah_prediction_a4c_val.csv',index_col=0)
 # table2=pd.read_csv('pah_prediction_plax_val.csv',index_col=0)

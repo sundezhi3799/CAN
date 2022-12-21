@@ -29,6 +29,7 @@ if __name__ == '__main__':
     gpu = params.gpu
     model_path = params.model_path
     view = params.view
+    
     os.environ['CUDA_VISIBLE_DEVICES'] = gpu
     image_s = imread(image_path).astype('uint8')
     if view == 'a4c':

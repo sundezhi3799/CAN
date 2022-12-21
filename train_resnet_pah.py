@@ -269,6 +269,7 @@ if __name__ == '__main__':
     weight_decay = params.weight_decay
     momentum = params.momentum
     drop_out = params.drop_out
+    
     os.environ['CUDA_VISIBLE_DEVICES'] = gpu
     labels_table = pd.read_csv(labels_file, index_col=0)
     main(image_dir, labels_table, view, label_dim, feature_dim, batch_size, epochs, learning_rate, weight_decay,

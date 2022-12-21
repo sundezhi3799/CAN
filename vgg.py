@@ -2,7 +2,6 @@ import numpy as np
 import os
 import nn
 import tensorflow.compat.v1 as tf
-
 tf.disable_v2_behavior()
 os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
 

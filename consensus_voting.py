@@ -15,7 +15,7 @@ info = info.loc[test_index, :]
 # #val
 # table1=pd.read_csv('pah_prediction_a4c_val.csv',index_col=0)
 # table2=pd.read_csv('pah_prediction_plax_val.csv',index_col=0)
-# info=pd.read_csv('train_test_pah_normal_a4c_plax.csv',index_col=0)
+# info=pd.read_csv('../echotrans-gpu/train_test_pah_normal_a4c_plax.csv',index_col=0)
 
 def score(patientid):
     a4c = eval(info.loc[patientid, 'a4c'])
@@ -104,6 +104,26 @@ def two_experts_TFPN(gts, preds1, preds2):
     tpr = TPTP / (TPTP + FPFP)
     tnr = TNTN / (TNTN + FNFN)
     return round(acc, 3), round(tpr, 3), round(tnr, 3)
+
+
+def voting(a4c_scores, plax_scores):
+    a4c_score = np.mean(a4c_scores)
+    plax_score = np.mean(plax_scores)
+    if a4c_score == None:
+        # print('None')
+        return None, None
+    elif a4c_score >= 0.5 and plax_score >= 0.5:
+        # print('diagnosed: Positive')
+        return 1, 1
+    elif a4c_score < 0.5 and plax_score < 0.5:
+        # print('diagnosed: Negative')
+        return 0, 0
+    elif a4c_score >= 0.5:
+        # print('uncertain')
+        return 1, 0
+    elif plax_score >= 0.5:
+        # print('uncertain')
+        return 0, 1
 
 
 if __name__ == '__main__':

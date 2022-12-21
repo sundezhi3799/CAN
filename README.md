@@ -14,4 +14,4 @@ Dezhi Sun (sundezhi3799@163.com)
 ```python unet_a4c_plax.py```<br>
 ```python segment_a4c_plax.py```<br>
 ```python train_resnet_pah.py```<br>
-```python predict_pah.py```
+```python detect_pah.py```

@@ -109,7 +109,7 @@ def load_train_test_data(image_dir, labels_dir, label_dim):
         imagelist.append(img)
         label = imread(os.path.join(labels_dir, label_name), flatten=True).astype('float32')
         lab = imresize(label, (224, 224))
-        lab=lab//lab.max()
+        lab = lab // lab.max()
         lst = list(set(lab.flatten().tolist()))
         for v in lst:
             lab[lab == v] = lst.index(v)
@@ -139,6 +139,15 @@ def main(image_dir, lables_dir, label_dim=2, feature_dim=3, batch_size=64, epoch
     os.makedirs('history', exist_ok=True)
     with open("history/unet_cardiac_%s_%s.pickle" % (model_name, timenow), 'wb') as file_pi:
         pickle.dump(history.history, file_pi)
+
+
+def segment(image, model_path):
+    image = imresize(image, (224, 224))
+    model = Network(model_name='unet').model
+    model.load_weights(model_path)
+    result = model.predict(np.array([image]))[0]
+    image[result <= 0.95] = 0
+    return image
 
 
 if __name__ == '__main__':

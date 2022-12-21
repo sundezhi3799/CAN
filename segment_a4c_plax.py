@@ -4,7 +4,7 @@ import numpy as np
 import os
 from scipy.misc import imresize, imread, imsave
 import tensorflow.compat.v1 as tf
-from unet_a4c import Network
+from unet_a4c_plax import Network
 from unet_cardiac import Network as n1
 from optparse import OptionParser
 

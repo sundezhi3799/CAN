@@ -143,7 +143,6 @@ class Network(object):
         x = base_model.output
         x = GlobalAveragePooling2D()(x)
         predictions = Dense(self.label_dim, activation='softmax')(x)
-        # 训练模型
         model = Model(inputs=base_model.input, outputs=predictions)
         # model.summary()
         return model
@@ -161,7 +160,6 @@ class Network(object):
     def train(self, out_path, learning_rate, weight_decay, momentum, epochs, batch_size, x_train, y_train, x_test,
               y_test, loss='binary_crossentropy', metrics=['accuracy'], early_stop=True, reducing_lr=True,
               save_best=True):
-        # 有一次提升, 则覆盖一次.
         checkpoint = ModelCheckpoint(out_path, monitor='val_acc', verbose=1, save_best_only=True,
                                      mode='max')
         self.model.compile(loss=loss, optimizer=SGD(decay=weight_decay, learning_rate=learning_rate, momentum=momentum),

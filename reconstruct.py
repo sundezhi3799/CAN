@@ -2,7 +2,7 @@
 from scipy.misc import imread, imresize, imsave
 import os
 import segment_a4c_plax
-import unet_plax
+import unet_a4c_plax
 from optparse import OptionParser
 
 
@@ -33,11 +33,11 @@ if __name__ == '__main__':
     os.environ['CUDA_VISIBLE_DEVICES'] = gpu
     image_s = imread(image_path).astype('uint8')
     if view == 'a4c':
-        unet = unet_plax.Network('unet', 3, 5, 0.5, False).model
+        unet = unet_a4c_plax.Network('unet', 3, 5, 0.5, False).model
         unet.load_weights(model_path)
         weight = {3: 0.468, 1: 401, 4: 0.127, 2: 0.004}
     else:
-        unet = unet_plax.Network('unet', 3, 4, 0.5, False).model
+        unet = unet_a4c_plax.Network('unet', 3, 4, 0.5, False).model
         unet.load_weights(model_path)
         weight = {3: 0.937, 1: 0.052, 2: 0.011}
     masks, fig = main(image_s, unet, weight)

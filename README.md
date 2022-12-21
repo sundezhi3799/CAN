@@ -11,9 +11,7 @@ Dezhi Sun (sundezhi3799@163.com)
 ##Usage
 ---
 ```python predict_viewclass.py```<br>
-```python unet_a4c.py```<br>
-```python unet_plax.py```<br>
+```python unet_a4c_plax.py```<br>
 ```python segment_a4c_plax.py```<br>
-```python resnet_a4c.py```<br>
-```python resnet_plax.py```<br>
+```python train_resnet_pah.py```<br>
 ```python predict_pah.py```

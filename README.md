@@ -3,18 +3,18 @@
 User Guide of Chamber Attention Network (CAN)
 
 ##Introduction
----
+
 This is the CAN toolkit developed for accurate diagnosis of pulmonary artery hypertension using echocardiography. You can set the suprameters according to your needs.
 
 Dezhi Sun (sundezhi3799@163.com) 
 
 ##Install
----
+
 ```
 python -m pip install -r requirements.txt
 ```
 ##Usage
----
+
 ```python .\classify_viewclass.py -d  "echo-jpg-2022" -g '0'```<br>
 - -d, the input directory of images;
 - -g, cuda device to use;

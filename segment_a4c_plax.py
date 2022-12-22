@@ -1,5 +1,3 @@
-# example: python .\segment_a4c_plax.py -p 'I00610693534.dcm.jpg' -m 'unet_a4c_unet_20221110_17_02_47.hdf5'
-from __future__ import division, print_function, absolute_import
 import numpy as np
 import os
 from scipy.misc import imresize, imread, imsave

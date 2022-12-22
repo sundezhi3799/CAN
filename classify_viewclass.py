@@ -1,14 +1,9 @@
-# example: python .\predict_viewclass_v3_gpu.py -d  "D:\data\Echocardiography\\xizong\echo-jpg-2022-testid"
-# -g 0 -m "view_6_resnet_resnet50_20221109_15_23_30.hdf5"
-from __future__ import division, print_function, absolute_import
 import numpy as np
 import tensorflow.compat.v1 as tf
 import os
-
 from optparse import OptionParser
 from scipy.misc import imread, imresize
 from resnet_6_views import Network
-
 tf.disable_v2_behavior()
 
 

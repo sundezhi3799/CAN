@@ -1,4 +1,3 @@
-from __future__ import division, print_function, absolute_import
 import os
 from optparse import OptionParser
 from scipy.misc import imread, imresize
